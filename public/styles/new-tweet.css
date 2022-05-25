@@ -1,0 +1,26 @@
+.new-tweet {
+  width: 100%;
+}
+
+.tweet-counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Bungee', cursive;
+}
+
+.tweet-button {
+  font-family: 'Bungee', cursive;
+  font-size: 18px;
+  background-color: #4056A1;
+  color: #FFFFFF;
+}
+
+#tweet-text {
+  width: 100%;
+  border-top: hidden;
+  border-left: hidden;
+  border-right: hidden;
+  border-bottom: solid 5px;
+  background-color: #f4f1ec;
+}

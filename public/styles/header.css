@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  height: 400px;
+  background-color: #c9e1e9;
+  background-image: url(../images/transparent-square-tiles.png);
+}
