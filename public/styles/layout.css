@@ -36,6 +36,11 @@ body {
   margin-right: auto;
  }
 
+ .spacer {
+   display: flex;
+   height: 45px;
+ }
+
  .container {
    display: flex;
    flex-direction: column;

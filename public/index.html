@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/article.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -24,6 +25,7 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/tweet-hover.js"></script>
   </head>
 
   <body>
@@ -36,7 +38,7 @@
       </div>
     </nav>
 
-    <header>
+    <header class="topheader">
       <div>
           <img src="/images/profile-hex.png">
       </div>
@@ -48,28 +50,39 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <div class="spacer"></div>
       <section class="new-tweet">
         <form action="/tweets/" method="POST">
           <div><label for="tweet-text">What are you humming about?</label></div>
           <div><textarea name="text" id="tweet-text"></textarea></div>
           <div class="tweet-counter">
             <button class="tweet-button" type="submit">Tweet</button>
-            <output name="counter" for="tweet-text">140</output>
+            <output class="counter" name="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
-      <br/>
-      <div>asofgwgjelglglwelgggi
-      dfg sdfg
-       sdfgg dsg
-       sdfg
-       dsgd
-       fgd dg s
-         dfg
-         sdf gsdf
-         g sdf googleapis Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, exercitationem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam pariatur accusantium facilis eaque odit nesciunt officia, ea fugit nisi. Itaque reprehenderit quaerat impedit consectetur enim tenetur cumque odio nobis qui placeat? Iste magnam porro asperiores enim veniam error impedit deleniti.
-
-    </div>
+      <div class="spacer"></div>
+      <article>
+        <header>
+          <span class="profile">
+            <span class="profile-image"><img src="/images/profile-hex.png"></span>
+            <span class="name">The Stranger</span>
+          </span>
+          <span class="tag">@ACamus</span>
+        </header>
+        <div class="tweet-body">
+          Man is the only creature who refuses to be what he is.
+        </div>
+        <div class="tweet-spacer"></div>
+        <footer>
+          <span class="date"> 1 day ago</span>
+          <span class="icons">
+            <span class="flag"><i class="fa-brands fa-font-awesome"></i></span>
+            <span class="retweet"><i class="fa-solid fa-retweet"></i></span>
+            <span class="like"><i class="fa-solid fa-heart"></i></span>
+          </span>
+        </footer>
+      </article>
   </main>
   </body>
 </html>

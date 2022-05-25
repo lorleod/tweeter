@@ -21,6 +21,10 @@
   border-top: hidden;
   border-left: hidden;
   border-right: hidden;
-  border-bottom: solid 5px;
+  border-bottom: 5px solid #545149;
   background-color: #f4f1ec;
+}
+
+.too-long {
+  color: red;
 }

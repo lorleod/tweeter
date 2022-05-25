@@ -1,0 +1,58 @@
+article {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+}
+
+article > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tweet-body {
+  display: flex;
+  width: 75%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article > footer {
+  display: flex;
+  width: 90%;
+  height: 2em;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image > img {
+  height: 80px;
+}
+
+.tweet-spacer {
+  display: flex;
+  height: 20px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 5px solid #545149;
+}
+
+.hover-icon {
+  color: #cd6b26
+}
+
+.hover-article {
+  box-shadow: 7px 5px #8e8a82;
+}
