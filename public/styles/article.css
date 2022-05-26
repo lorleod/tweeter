@@ -56,3 +56,8 @@ article > footer {
 .hover-article {
   box-shadow: 7px 5px #8e8a82;
 }
+
+.article-spacer {
+  display: flex;
+  height: 20px;
+}
