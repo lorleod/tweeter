@@ -6,30 +6,6 @@
 
 $(document).ready(function () {
   // Test / driver code (temporary). Eventually will get this from the server.
-  const tweetData = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac",
-      },
-      content: {
-        text: "If I have seen further it is by standing on the shoulders of giants",
-      },
-      created_at: 1653345262138,
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd",
-      },
-      content: {
-        text: "Je pense , donc je suis",
-      },
-      created_at: 1653431662138,
-    },
-  ];
 
   const createTweetElement = function (tweetData) {
     let tweetElement = `<article>
@@ -43,7 +19,7 @@ $(document).ready(function () {
   <div class="tweet-body">${tweetData.content.text}</div>
   <div class="tweet-spacer"></div>
   <footer>
-    <span class="date">${tweetData.created_at}</span>
+    <span class="date">${timeago.format(tweetData.created_at)}</span>
     <span class="icons">
       <span class="flag"><i class="fa-brands fa-font-awesome"></i></span>
       <span class="retweet"><i class="fa-solid fa-retweet"></i></span>
@@ -55,7 +31,22 @@ $(document).ready(function () {
     return tweetElement;
   };
 
-  // pushes past tweets to #tweets-container
+  const loadTweets = function () {
+    $.ajax({
+      type: "GET",
+      url: "/tweets/",
+    })
+    .done(function (responseData) {
+      rendertweets(responseData);
+    })
+    .fail(function (errorData) {
+      console.log("fail: ", errorData);
+    })
+  };
+
+  loadTweets();
+
+  // on page load, .append in tweet articles - pushes past tweets to #tweets-container
   const rendertweets = function (tweets) {
     // adds space between tweets
     const articleSpacer = "<div class='article-spacer'></div>";
@@ -66,9 +57,6 @@ $(document).ready(function () {
       $("#tweets-container").append($tweet, articleSpacer);
     }
   };
-
-  //on page load, .append in tweet articles
-  rendertweets(tweetData);
 
   //listen for submit on tweet creation form
   $("#new-tweet-form").submit(function (event) {
@@ -87,4 +75,5 @@ $(document).ready(function () {
       console.log("fail: ", errorData);
     })
   });
+
 });
