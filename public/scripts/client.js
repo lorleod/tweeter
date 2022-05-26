@@ -48,17 +48,20 @@ $(document).ready(function () {
 
   // on page load, .append in tweet articles - pushes past tweets to #tweets-container
   const rendertweets = function (tweets) {
+    // empties out #tweets-container first
+    $("#tweets-container").empty();
+
     // adds space between tweets
     const articleSpacer = "<div class='article-spacer'></div>";
 
     // loops through tweets
-    for (const twat of tweets) {
-      const $tweet = createTweetElement(twat);
-      $("#tweets-container").append($tweet, articleSpacer);
+    for (const twit of tweets) {
+      const $tweet = createTweetElement(twit);
+      $("#tweets-container").prepend($tweet, articleSpacer);
     }
   };
 
-  //listen for submit on tweet creation form
+  //listen for user hitting submit on tweet creation form
   $("#new-tweet-form").submit(function (event) {
     event.preventDefault();
     console.log("this", this);
@@ -82,6 +85,7 @@ $(document).ready(function () {
       })
         .done(function (responseData) {
           console.log("success: ", responseData);
+          loadTweets();
         })
         .fail(function (errorData) {
           console.log("fail: ", errorData);
