@@ -8,6 +8,8 @@ $(document).ready(function () {
 
     if (currentLength > maxTweetLength) {
       $counter.addClass("too-long");
+    } else if (currentLength < maxTweetLength) {
+      $counter.removeClass("too-long");
     }
   });
 });

@@ -36,12 +36,12 @@ $(document).ready(function () {
       type: "GET",
       url: "/tweets/",
     })
-    .done(function (responseData) {
-      rendertweets(responseData);
-    })
-    .fail(function (errorData) {
-      console.log("fail: ", errorData);
-    })
+      .done(function (responseData) {
+        rendertweets(responseData);
+      })
+      .fail(function (errorData) {
+        console.log("fail: ", errorData);
+      });
   };
 
   loadTweets();
@@ -61,19 +61,31 @@ $(document).ready(function () {
   //listen for submit on tweet creation form
   $("#new-tweet-form").submit(function (event) {
     event.preventDefault();
-    const data = $(this).serialize();
-    $.ajax({
-      type: "POST",
-      url: "/tweets/",
-      data: data,
-      datatype: "query",
-    })
-    .done(function (responseData) {
-      console.log("success: ", responseData);
-    })
-    .fail(function (errorData) {
-      console.log("fail: ", errorData);
-    })
-  });
+    console.log("this", this);
 
+    let tweetText = $("#new-tweet-form").find("#tweet-text").val();
+    let currentLength = tweetText.length;
+    const maxTweetLength = 140;
+
+    // form validation: if form isn't correct, alert error, else submit
+    if (tweetText === "" || tweetText === null) {
+      alert("NO EMPTY TWEETS FOR YOU!");
+    } else if (currentLength > maxTweetLength) {
+      alert("YER TWEET BE TOO LORGE")
+    } else {
+      const data = $(this).serialize();
+      $.ajax({
+        type: "POST",
+        url: "/tweets/",
+        data: data,
+        datatype: "query",
+      })
+        .done(function (responseData) {
+          console.log("success: ", responseData);
+        })
+        .fail(function (errorData) {
+          console.log("fail: ", errorData);
+        });
+    }
+  });
 });
