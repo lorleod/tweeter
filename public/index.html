@@ -3,6 +3,9 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- External CSS -->
     <link
@@ -61,7 +64,7 @@
       </div>
       <br />
       <div>
-        <h2>Your Name</h2>
+        <h2>Ms. Anon</h2>
       </div>
     </header>
 
@@ -73,7 +76,11 @@
           <div><label for="tweet-text">What are you humming about?</label></div>
           <div><textarea name="text" id="tweet-text"></textarea></div>
           <div class="tweet-counter">
-            <button class="tweet-button" type="submit">Tweet</button>
+            <div id="button-and-errors">
+              <button class="tweet-button" type="submit">Tweet</button>
+              <div class="submit-error-spacer"></div>
+              <p id="submit-errors"></p>
+            </div>
             <output class="counter" name="counter" for="tweet-text">140</output>
           </div>
         </form>
@@ -83,30 +90,3 @@
     </main>
   </body>
 </html>
-
-
-<!-- <article>
-  <header>
-    <span class="profile">
-      <span class="profile-image"
-        ><img src="/images/profile-hex.png"
-      /></span>
-      <span class="name">The Stranger</span>
-    </span>
-    <span class="tag">@ACamus</span>
-  </header>
-  <div class="tweet-body">
-    Man is the only creature who refuses to be what he is.
-  </div>
-  <div class="tweet-spacer"></div>
-  <footer>
-    <span class="date"> 1 day ago</span>
-    <span class="icons">
-      <span class="flag"
-        ><i class="fa-brands fa-font-awesome"></i
-      ></span>
-      <span class="retweet"><i class="fa-solid fa-retweet"></i></span>
-      <span class="like"><i class="fa-solid fa-heart"></i></span>
-    </span>
-  </footer>
-</article> -->

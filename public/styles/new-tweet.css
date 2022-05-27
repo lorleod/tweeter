@@ -28,3 +28,19 @@
 .too-long {
   color: red;
 }
+
+#button-and-errors {
+  display: flex;
+
+}
+
+#submit-errors {
+  color: red;
+  margin: 0px;
+  font-size: 20px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.submit-error-spacer {
+  width: 15px;
+}

@@ -4,12 +4,14 @@ $(document).ready(function () {
     const maxTweetLength = 140;
     const $form = $(this).closest("form");
     const $counter = $form.find(".counter");
-    $counter.html(maxTweetLength - currentLength);
+    $counter.text(maxTweetLength - currentLength);
 
     if (currentLength > maxTweetLength) {
       $counter.addClass("too-long");
     } else if (currentLength < maxTweetLength) {
       $counter.removeClass("too-long");
     }
+
   });
+
 });

@@ -1,11 +1,15 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(document).ready(function () {
-  // Test / driver code (temporary). Eventually will get this from the server.
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  $(".flag").hover(
+    function() {console.log("aghweoheihaoifosihoshfdsf");
+  }, function() {
+    $(this).removeClass("hover-icon")
+  });
 
   const createTweetElement = function (tweetData) {
     let tweetElement = `<article>
@@ -16,7 +20,7 @@ $(document).ready(function () {
     </span>
     <span class="tag">${tweetData.user.handle}</span>
   </header>
-  <div class="tweet-body">${tweetData.content.text}</div>
+  <div class="tweet-body">${escape(tweetData.content.text)}</div>
   <div class="tweet-spacer"></div>
   <footer>
     <span class="date">${timeago.format(tweetData.created_at)}</span>
@@ -51,6 +55,11 @@ $(document).ready(function () {
     // empties out #tweets-container first
     $("#tweets-container").empty();
 
+    const varrr = document.createElement("script");
+    varrr.type = "text/javascript";
+    varrr.src = "/scripts/tweet-hover.js"
+    $("head").append(varrr);
+
     // adds space between tweets
     const articleSpacer = "<div class='article-spacer'></div>";
 
@@ -64,18 +73,21 @@ $(document).ready(function () {
   //listen for user hitting submit on tweet creation form
   $("#new-tweet-form").submit(function (event) {
     event.preventDefault();
-    console.log("this", this);
 
     let tweetText = $("#new-tweet-form").find("#tweet-text").val();
     let currentLength = tweetText.length;
     const maxTweetLength = 140;
 
-    // form validation: if form isn't correct, alert error, else submit
+    // form validation: if form isn't correct, alert error, else clear errors and submit
     if (tweetText === "" || tweetText === null) {
-      alert("NO EMPTY TWEETS FOR YOU!");
+      $("#submit-errors").text("We don't take kindly to empty tweets in these here parts. Better try again");
     } else if (currentLength > maxTweetLength) {
-      alert("YER TWEET BE TOO LORGE")
+      $("#submit-errors").text("We don't take kindly to big tweets in these here parts. Better try again");
     } else {
+
+      //clear errors
+      $("#submit-errors").text("");
+
       const data = $(this).serialize();
       $.ajax({
         type: "POST",
@@ -86,10 +98,15 @@ $(document).ready(function () {
         .done(function (responseData) {
           console.log("success: ", responseData);
           loadTweets();
+
+          //reset new tweet form text field
+          $("#new-tweet-form").find("#tweet-text").val("");
+
         })
         .fail(function (errorData) {
           console.log("fail: ", errorData);
         });
+
     }
   });
 });
