@@ -17,3 +17,7 @@ Tweeter is a simple, single-page Twitter clone intended to grow my understanding
 - Chance
 - Md5
 - Node 5.10.x or above
+
+## Screenshots
+!["counter"](https://github.com/lorleod/tweeter/blob/master/docs/counter.png?raw=true)
+![]()
