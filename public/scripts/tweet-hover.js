@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+  //Hover functions for tweet articles and buttons
 $("article").hover(function () {
   $(this).addClass("hover-article")
 }, function() {

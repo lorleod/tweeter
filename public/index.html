@@ -13,7 +13,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
       type="text/css"
     />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -58,35 +57,44 @@
       </div>
     </nav>
 
-    <header class="topheader">
-      <div>
-        <img src="/images/profile-hex.png" />
-      </div>
-      <br />
-      <div>
-        <h2>Ms. Anon</h2>
-      </div>
-    </header>
+    <!-- responsive box shifts flex direction from column to row at min width 1024px -->
+    <div class="responsive-box">
+      <!-- User profile image and name -->
+      <header class="topheader">
+        <div>
+          <img src="/images/profile-hex.png" />
+        </div>
+        <br />
+        <div>
+          <h2>Ms. Anon</h2>
+        </div>
+      </header>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <div class="spacer"></div>
-      <section class="new-tweet">
-        <form id="new-tweet-form" action="/tweets/" method="POST">
-          <div><label for="tweet-text">What are you humming about?</label></div>
-          <div><textarea name="text" id="tweet-text"></textarea></div>
-          <div class="tweet-counter">
-            <div id="button-and-errors">
-              <button class="tweet-button" type="submit">Tweet</button>
-              <div class="submit-error-spacer"></div>
-              <p id="submit-errors"></p>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <div class="spacer"></div>
+
+        <!-- New tweet form -->
+        <section class="new-tweet">
+          <form id="new-tweet-form" action="/tweets/" method="POST">
+            <div><label for="tweet-text">What would you like to share?</label></div>
+            <div><textarea name="text" id="tweet-text"></textarea></div>
+            <div class="tweet-counter">
+              <div id="button-and-errors">
+                <button class="tweet-button" type="submit">Tweet</button>
+                <div class="submit-error-spacer"></div>
+                <p id="submit-errors"></p>
+              </div>
+              <output class="counter" name="counter" for="tweet-text">140</output>
             </div>
-            <output class="counter" name="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-      <div class="spacer"></div>
-      <div id="tweets-container"></div>
-    </main>
+          </form>
+        </section>
+        <div class="spacer"></div>
+
+        <!-- Tweet list -->
+        <div id="tweets-container"></div>
+      </main>
+    </div>
+
   </body>
 </html>
