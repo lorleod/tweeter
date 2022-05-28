@@ -19,5 +19,9 @@ Tweeter is a simple, single-page Twitter clone intended to grow my understanding
 - Node 5.10.x or above
 
 ## Screenshots
-!["counter"](https://github.com/lorleod/tweeter/blob/master/docs/counter.png?raw=true)
-![]()
+!["counter"](https://github.com/lorleod/tweeter/blob/master/docs/counter.png)
+!["hover-over-like](https://github.com/lorleod/tweeter/blob/master/docs/hover-over-like.png)
+!["new-tweet"](https://github.com/lorleod/tweeter/blob/master/docs/new-tweet.png)
+!["responsive](https://github.com/lorleod/tweeter/blob/master/docs/responsive.png)
+!["top-of-page"](https://github.com/lorleod/tweeter/blob/master/docs/top-of-page.png)
+!["top of page"](https://github.com/lorleod/tweeter/blob/master/docs/tweets.png)
